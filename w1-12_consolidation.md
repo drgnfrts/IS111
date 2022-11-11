@@ -1,5 +1,12 @@
 # IS111 Consolidation (Week 1 to 12)
 
+GENERAL GUIDELINES TO CODING:
+
+1. Read the question and understand the demands of it. Stay calm when seeing long questions
+2. Write out your logic flow on paper before beginning coding
+3. Handle empty strings/dicts/lists/tuples etc. first if they can be returned immediately
+4. Run the code halfway through to see if the data and its types and formats are the desired type
+
 - [IS111 Consolidation (Week 1 to 12)](#is111-consolidation-week-1-to-12)
   - [Variables](#variables)
   - [Operators](#operators)
@@ -55,6 +62,7 @@
   - [W11: Nested Dictionaries [**]](#w11-nested-dictionaries-)
   - [W12: Due Date Scheduling [***]](#w12-due-date-scheduling-)
   - [MLT2: Separate Numbers & Calculate Averages [***]](#mlt2-separate-numbers--calculate-averages-)
+  - [19LT2: Generate Relations [***]](#19lt2-generate-relations-)
 
 ## Variables
 
@@ -969,3 +977,8 @@ Applicable to Lab 8 Q3 and 6.
 3. Split the strings again by whitespace, calculate averages (remember to convert type)
 4. Set negative infinity as the lowest average and use max function to compare the averages
 5. Remember to write the result properly to the output file
+
+## 19LT2: Generate Relations [***]
+
+1. 19LT2 Q4b
+2. The hardest part of this question is to

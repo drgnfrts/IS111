@@ -1,9 +1,18 @@
 # Name:
 # Email ID:    
 def calculate_term_gpa(term_grades, mapping):
-    
-    # Write your code here.
-    return None
+    hold = 0
+    mods = 0
+    for i in range(len(term_grades)):
+        if not term_grades[i].isalpha():
+            continue
+        elif i + 1 != len(term_grades) and term_grades[i + 1].isalpha():
+            grade = term_grades[i]
+        else:
+            grade = term_grades[i:i+2]
+        hold += mapping[grade]
+        mods += 1
+    return hold / mods
 
 # DO NOT MODIFY THE CODE BELOW!
 if __name__ == "__main__":

@@ -10,7 +10,6 @@ def get_relation_through_link(family_dict, link):
             rs1, rs2 = stripped[0].split(",")
             rs1 = rs1.strip("(")
             rs_dict[(rs1, rs2)] = stripped[1]
-    final_rs = ""
     hold_rs = ""
     for i in range(len(link) - 1):
         if hold_rs == "":

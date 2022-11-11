@@ -1,9 +1,28 @@
 # Name:
 # Email ID:
 def get_daily_spending(filename, start_day, end_day, month, year):
+    r_dict = {}
+    with open(filename, "r") as inputfile:
+        for line in inputfile:
+            stripped = line.strip("\n").split("|")
+            lineday, linemonth, lineyear = stripped[0].split("/")
+            k = str(f"{int(lineday)}/{int(linemonth)}/{lineyear}")
+            print(k, type(k))
+            if k in r_dict:
+                r_dict[k] += int(stripped[1])
+            else:
+                r_dict[k] = int(stripped[1])
+    date_list = []
+    for i in range(start_day, end_day + 1):
+        date_list.append(str(f"{i}/{month}/{year}"))
+    r_list = []
+    for each_date in date_list:
+        if each_date in r_dict:
+            r_list.append(r_dict[each_date])
+        else:
+            r_list.append(0)
+    return r_list
 
-    # Write your code here.
-    return None
 
 # DO NOT MODIFY THE CODE BELOW!
 if __name__ == "__main__":
