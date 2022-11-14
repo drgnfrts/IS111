@@ -310,8 +310,8 @@ Note: int(True) = 1 and int(False) = 0
         input() -> returns a string
         print(i, end=' ') -> prints i and ends with a space instead of new line
         round(element, demical_places)
-        random.randint(a, b) -> gives an integer exclusive of b [a, b)
-        random.randrange(a, b) -> gives an integer inclusive of b [a, b]
+        random.randint(a, b) -> gives an integer inclusive of b [a, b]
+        random.randrange(a, b) -> gives an integer exclusive of b [a, b)
         max(iterables), min(iterables) -> returns the max or min of iterables
         float("inf") and -float("inf") as proxies for infinity and negative infinity
         set(list1).union(set(list2)) -> outputs the union of two sets, returns a set
