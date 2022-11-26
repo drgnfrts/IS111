@@ -29,9 +29,7 @@ def read_schedule(filename):
                     hold_dict[day][each_name] = (start24, end24)
                 else:
                     existing_start, existing_end = hold_dict[day][each_name]
-                    if end24 - start24 < existing_end - existing_start:
-                        hold_dict[day][each_name] = (start24, end24)
-                    elif end24 - start24 == existing_end - existing_start and end24 > existing_end:
+                    if end24 - start24 <= existing_end - existing_start:
                         hold_dict[day][each_name] = (start24, end24)
         for each_day in hold_dict.keys():
             r_dict[each_day] = []
