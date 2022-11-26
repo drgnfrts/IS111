@@ -1,0 +1,134 @@
+A1 - D
+A2 - E
+A3 - A
+A4 - E
+A5 - D - X (B)
+A6 - E
+A7 - C - X (D)
+condition to break out
+not(len(str1) > len(str2) and a not in str1)
+= not(len(str1) > len(str2)) or not(a not in str1)
+= len(str1) <= len(str2) or a in str1
+A8 - A
+
+B1A
+word = "long string"
+i = 0
+while i < len(word):
+    print(word[i])
+    i += 1
+
+B1B
+i = 100
+while i >= 0:
+    print(i)
+    i -= 2
+
+B1C
+not(count < target or some_found and count < 100 or not all_found)
+= not(count < target or some_found) or not(count < 100 or not all_found)
+= not count < target and not some_found or not count < 100 and all_found
+= count >= target and some_found == False or count >= 100 and all_found
+
+B2
+x = int(input("Enter x:"))
+y = int(input("Enter y:"))
+z = int(input("Enter z:"))
+
+result = (x ** y) ** z
+print(f"Based on the values of {x}, {y} and {z}, respectively, the result is {result} .")
+
+B3A
+def extract_substrings(digit_str, substr_len):
+    list_to_return = []
+    if len(digit_str) < substr_len:
+        return list_to_return
+    for i in range(len(digit_str) - substr_len + 1):
+        list_to_return.extend(digit_str[i : i +  substr_len])
+    return list_to_return
+
+B3B
+def add_substring_numbers(digit_str):
+    total = 0
+    hold_list = []
+    for i in range(len(digit_str)):
+        hold_list.extend(extract_substrings(digit_str, i + 1))
+    for str_num in hold_list:
+        total += int(str_num)
+    return total
+
+B4
+def get_close_contacts(case_list, contact_network, degree_separation):
+    r_list = []
+    for infected_person in case_list:
+        each_person_final = []
+        index = 1
+        check = [infected_person]
+        while index <= degree_separation:
+            holding = []
+            for name in check:
+                if name in contact_network:
+                    holding += contact_network[name]
+                for each_item in contact_network.items():
+                    each_key, each_val = each_item
+                    if name in each_val:
+                        holding.append(each_key)
+            holding = list(set(holding))
+            check = []
+            for i in range(len(holding)):
+                if holding[i] not in each_person_final and holding[i] != infected_person:
+                    check.append(holding[i])
+            each_person_final += check
+            index += 1
+        for close_contact in each_person_final:
+            if close_contact not in case_list and close_contact not in r_list:
+                r_list.append(close_contact)
+    return r_list
+
+B5
+# ERROR 1: "define" instead of "def"
+def get_dictionary(family_dictionary_str):
+    dict_to_return = {}
+    parent_name = ''
+    child_name = ''
+    in_str = False
+    in_list = False
+    for ch in family_dictionary_str:
+	# ERROR 3: OR instead of AND
+        if ch == "'" and in_str == False:
+            in_str = True
+        elif ch == "'":
+            in_str = False
+        elif in_str and not in_list:
+            parent_name += ch.lower()
+        # ERROR 4: "not" should be omitted, as child name is always in string
+        elif in_str and in_list:
+	        child_name += ch
+        elif ch == ":":
+            dict_to_return[parent_name] = []
+        elif ch == "[":
+            in_list = True
+        elif ch == "]":
+	    if child_name != '':
+                # ERROR 5: Use of Extend instead of Append
+                dict_to_return[parent_name].append(child_name)
+            # ERROR 6: Failure to change in_list
+            in_list = False
+            parent_name = ''
+            child_name = ''
+        elif ch == "," and in_list:
+            dict_to_return[parent_name].append(child_name)
+            child_name = ''
+        
+    return dict_to_return
+
+def lookup_names(family_dictionary_str, parent_name)
+    family_dict = get_dictionary(family_dictionary_str)
+    if parent_name.lower() in family_dict:
+        # ERROR 2: parent_name instead of parent_name.lower() as specified by get_dictionary when calling below
+        return family_dict[parent_name.lower()]
+    else:
+        return None
+
+
+

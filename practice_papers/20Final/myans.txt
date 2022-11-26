@@ -1,0 +1,76 @@
+A1 - E
+A2 - B
+A3 - B
+A4 - D - X (A) -> watch list slicing still retains list type
+A5 - C
+A6 - E
+A7 - E
+A8 - A
+A9 - C
+A10 - A - X (C)
+
+B1
+def print_digits(text):
+    r_str = ''
+    for ch in text:
+        if ch.isdigit():
+            r_str += ch
+        else:
+            r_str += "#"
+    print(r_str)
+
+B2
+def count_decimal_places(num_value):
+    if "." not in num_value:
+        return 0
+    dec_index = num_value.find(".")
+    return len(num_value) - 1 - dec_index
+
+B3A
+def fraction_compare(fraction1, fraction2):
+    a, b = fraction1
+    c, d = fraction2
+    numerator = a * d - b * c
+    denominator = b * d
+    if numerator == 0:
+        return 0
+    if numerator > 0 and denominator > 0 or numerator < 0 and denominator < 0:
+        return 1
+    return -1
+
+B3B
+def get_largest_fraction(fractions):
+    if fractions == []:
+        return []
+    elif len(fractions) == 1:
+        return fractions[0]
+    for i in range(len(fractions)):
+        winner = 0
+        for j in range(len(fractions)):
+            if i != j:
+                if fraction_compare(fractions[i], fractions[j]) == 1:
+                    winner += 1
+        if winner == len(fractions) - 1:
+            return fractions[i]
+
+B4A
+def is_compatiable(donor, reciepient):
+    verified = {"O-": ["AB+", "AB-", "A+", "A-", "B+", "B-", "O-", "O+"], "O+": ["AB+", "A+", "B+", "O+"], "B-": ["AB+", "AB-", "B+", "B-"], "B+": ["AB+", "B+"], "A-": ["AB+", "AB-", "A+", "A-"], "A+": ["AB+", "A+"], "AB-": ["AB+", "AB-"], "AB+": ["AB+"]}
+    return reciepient in verified[donor]
+
+B4B
+def get_donors(willing_donors, reciepient):
+    compatible = []
+    for willing_donor in willing_donors:
+        if is_compatiable(willing_donor[1], reciepient):
+            compatible.append(willing_donor)
+    return compatible
+
+B5
+blue
+white
+cyan
+yellow
+golden
+pink
+5
